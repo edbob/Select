@@ -1,0 +1,157 @@
+<html>
+<head>
+    <title>Связанные селекты</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- Подключаем javascript-библиотеку функций -->
+    <script type="text/javascript" src="linkedselect.js"></script>
+    <style>
+        select{
+            height: 150px;
+        }
+        .button {
+            padding: 4px 12px;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: middle !important;
+            background-color: #d9d9d9;
+            border: 1px transparent solid;
+            color: #222222;
+            border-radius: 0;
+            cursor: pointer;
+            display: inline-block;
+            outline: none;
+            font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 16px;
+            margin-bottom: 12px;
+        }
+        .button.primary {
+            background-color: #004494;
+            color: #ffffff !important;
+        }
+        .button:active {
+            background-color: #55ac42 !important;
+            color: #ffffff !important;
+            border-color: transparent;
+        }
+        a:hover{
+            background-color: #0066cc !important;
+        }
+    </style>
+</head>
+
+<body>
+<p><b>Примеры оформления платежей</b></p>
+
+<p>выберите нужный вам раздел и нажмите по названию</p>
+<!-- Первый (главный) список (изначально заполнен вручную) -->
+<select size="4" id="List1">
+    <option value="mobConn"> Мобильная связь</option>
+    <option value="internetTV"> Интернет и ТВ</option>
+    <option value="safari"> Стационарная ТВ</option>
+    <option value="safari"> Коммунальные</option>
+    <option value="safari"> Внутрибанковские переводы</option>
+    <option value="safari"> Страхования по кредитам</option>
+    <option value="safari"> Произвольных платежей</option>
+</select>
+
+<!-- Подчиненный список 1 (изначально пуст) -->
+<select size="4" id="List2"></select>
+
+<!-- Подчиненный список 2 (изначально пуст) -->
+<select size="4" id="List3"></select>
+<a href=""  onClick="look()" class="button primary">Смотреть!</a>
+
+<script type="text/javascript">
+    function look() {
+        var obj = document.getElementById("List3");
+
+        window.open(location = obj.options[ obj.selectedIndex ].value, 'about:blank', 'width=800,height=800', 'scrollbars=yes');
+
+        return false;
+
+    }
+
+    // Создаем новый объект связанных списков
+    var syncList1 = new syncList;
+
+    // Определяем значения подчиненных списков (2 и 3 селектов)
+    syncList1.dataList = {
+        /* Определяем элементы второго списка в зависимости
+         от выбранного значения в первом списке */
+
+        'mobConn': {
+            'mobConn_MTC': 'MTC',
+            'mobConn_Intertelecom': 'Intertelecom',
+            'mobConn_Kstar': 'Киевстар',
+            'mobConn_Beeline': 'Билайн',
+            'mobConn_Lefe': 'Lefe:)',
+            'mobConn_PEOPLEnet': 'PEOPLEnet',
+            'mobConn_TriMob': 'ТриМоб (Utel)',
+            'mobConn_ipSIPNET': 'IP телефонии SIPNET '
+        },
+
+        'internetTV': {
+            'internetTV_TRKbriz': 'ООО ТРК Бриз',
+            'internetTV_TKchernoeMore': 'ТК Черное море'
+        },
+
+
+        /* Определяем элементы третьего списка в зависимости
+         от выбранного значения во втором списке */
+
+        'mobConn_MTC': {
+            'http://marfinbank.ua/web/mb-ru.nsf/0/28B61FB8125754DCC2257C420032462F/$FILE/20130213_MTS_RU.pdf': 'URL_MTC.pdf',
+            '<img src="images/1.jpg">':''
+        },
+
+        'mobConn_Intertelecom': {
+            'http://marfinbank.ua/web/mb-ru.nsf/0/2C1CCBADB00F4A4DC2257C4200326384/$FILE/20130213_InterTeleCom_RU.pdf': 'URL_Intertelecom.pdf'
+        },
+
+        'mobConn_Kstar': {
+            'http://marfinbank.ua/web/mb-ru.nsf/0/F06AF1701245A64DC2257C420032864C/$FILE/20130213_KyivStar_RU.pdf': 'URL_Kstar.pdf'
+        },
+
+        'mobConn_Beeline': {
+            'http://marfinbank.ua/web/mb-ru.nsf/0/DF6CB16BF0D9D094C2257C420032A780/$FILE/20130213_Beeline_RU.pdf': 'URL_Beeline.pdf'
+        },
+
+        'mobConn_Lefe': {
+            'http://marfinbank.ua/web/mb-ru.nsf/0/9953E63F331A9A3CC2257C420032CA2A/$FILE/20130213_Life_RU.pdf': 'URL_Lefe.pdf'
+
+        },
+
+        'mobConn_PEOPLEnet': {
+            'http://marfinbank.ua/web/mb-ru.nsf/0/22F4181EE1A12A45C2257C420032EDF9/$FILE/payPeoplenet.pdf': 'URL_PEOPLEnet.pdf'
+
+        },
+
+        'mobConn_TriMob': {
+            'http://marfinbank.ua/web/mb-ru.nsf/0/61D6FF79F6A70A91C2257C420033179A/$FILE/payThrMob.pdf': 'URL_TriMob.pdf'
+
+        },
+
+        'mobConn_ipSIPNET': {
+            'http://marfinbank.ua/web/mb-ru.nsf/0/1A0B0936ADDF8C79C2257C4200333E38/$FILE/paySIPNET.pdf': 'URL_ipSIPNET.pdf'
+
+        },
+
+//internetTV
+        'internetTV_TRKbriz': {
+            'URL_internetTV': 'ООО ТРК Бриз'
+        },
+
+        'internetTV_TKchernoeMore': {
+            'URL_TKchernoeMore': 'ТК Черное море'
+        }
+
+    };
+
+    // Включаем синхронизацию связанных списков    internetTV_TKchernoeMore
+    syncList1.sync("List1", "List2", "List3");
+</script>
+
+</body>
+</html>
