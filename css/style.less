@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+.main{
+  margin: 0 auto;
+  width: 600px;
+  p{
+    margin-bottom: 12px;
+  }
+  select{
+    height: 150px;
+    option{
+      margin: 0 0 5px 5px;
+    }
+  }
+}
+select{
+  height: 150px;
+}
+.button {
+    padding: 4px 12px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle !important;
+    background-color: #d9d9d9;
+    border: 1px transparent solid;
+    color: #222222;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    line-height: 16px;
+    margin-bottom: 12px;
+  & a:hover{
+    background-color: #0066cc !important;
+  }
+  &.primary {
+    background-color: #004494;
+    color: #ffffff !important;
+  }
+  &:active {
+    background-color: #55ac42 !important;
+    color: #ffffff !important;
+    border-color: transparent;
+  }
+}
+
+#errorSelect{
+  color: red;
+  display: none;
+}
+.noReady{
+  background-color: #c5c5c5;
+  cursor: default;
+  padding: 4px 12px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle !important;
+  border: 1px transparent solid;
+  color: #222222;
+  border-radius: 0;
+  display: inline-block;
+  outline: none;
+  line-height: 16px;
+  margin-bottom: 12px;
+}
