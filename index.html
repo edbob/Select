@@ -6,50 +6,14 @@
     <!-- Подключаем javascript-библиотеку функций -->
 
     <script type="text/javascript" src="linckselect.js"></script>
-    <style>
-
-        select{
-            height: 150px;
-        }
-        .button {
-            padding: 4px 12px;
-            text-align: center;
-            text-decoration: none;
-            vertical-align: middle !important;
-            background-color: #d9d9d9;
-            border: 1px transparent solid;
-            color: #222222;
-            border-radius: 0;
-            cursor: pointer;
-            display: inline-block;
-            outline: none;
-            font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-            font-size: 14px;
-            line-height: 16px;
-            margin-bottom: 12px;
-        }
-        .button.primary {
-            background-color: #004494;
-            color: #ffffff !important;
-        }
-        .button:active {
-            background-color: #55ac42 !important;
-            color: #ffffff !important;
-            border-color: transparent;
-        }
-        a:hover{
-            background-color: #0066cc !important;
-        }
-        #despS{
-            color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css"/>
 </head>
 
 <body>
+<div class="main">
 <p><b>Примеры оформления платежей</b></p>
 <p style="cursor: help">Выберите нужный раздел, нажмите его после чего нажмите кнопку "Открыть"</p>
-<div id="despS"><p>Вы нажали на пустую строку!</p></div>
+<div id="errorSelect"><p>Вы нажали на пустую строку!</p></div>
 <select size="4" id="List1">
     <option value="mobConn"> Мобильная связь</option>
     <option value="internetTV"> Интернет и ТВ</option>
@@ -60,23 +24,24 @@
     <option value="CustomPayments"> Произвольные платежи</option>
 </select>
 <select onclick='updateButtons(options[this.selectedIndex].value)' size="4" id="List2"></select>
-<a href="" id="editButton" class="button primary" target="_blank">Открыть</a>
+<a href="" id="openButt" class="button primary" target="_blank">Открыть</a>
+</div>
 <script type="text/javascript">
     window.updateButtons = function(value) {
-
-        element = document.getElementById('editButton');
+        element = document.getElementById('openButt');
         if(value.length !== 0){
             element.href = value;
-            var DespsA =document.getElementById("despS");
-            DespsA.style.display = 'none'
+            var DespsA =document.getElementById("errorSelect");
+            DespsA.style.display = 'none';
+
         }else{
-            var DespsB =document.getElementById("despS");
-            DespsB.style.display = 'block'
-            //return false;
+            var DespsB =document.getElementById("errorSelect");
+            DespsB.style.display = 'block';
+            element.href = '#';
+            element.removeAttribute('target');
+            element.setAttribute("class", "noReady");
         }
-
         //console.log(element.href);//fo look in console!
-
     }
     var syncList1 = new syncList;
 
