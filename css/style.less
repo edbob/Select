@@ -15,12 +15,9 @@ body{
   select{
     height: 150px;
     option{
-      margin: 0 0 5px 5px;
+      padding: 7px 2px 2px 0px;
     }
   }
-}
-select{
-  height: 150px;
 }
 .button {
     padding: 4px 12px;
@@ -36,23 +33,22 @@ select{
     outline: none;
     line-height: 16px;
     margin-bottom: 12px;
-  & a:hover{
-    background-color: #0066cc !important;
-  }
+
   &.primary {
     background-color: #004494;
     color: #ffffff !important;
-  }
-  &:active {
-    background-color: #55ac42 !important;
-    color: #ffffff !important;
-    border-color: transparent;
+    a&:hover{
+      background-color: #0066cc !important;
+    }
   }
 }
-
 #errorSelect{
-  color: red;
+  background: red;
+  color: #ffffff;
   display: none;
+  padding: 5px;
+  margin-bottom: 10px;
+  p{margin-bottom: 0px !important;}
 }
 .noReady{
   background-color: #c5c5c5;
