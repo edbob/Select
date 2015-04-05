@@ -7,13 +7,11 @@
 
     <script type="text/javascript" src="linckselect.js"></script>
     <style>
-        .divSelectMenu {
-            height: 300px;
-        }
-        .divSelectMenu select{
+
+        select{
             height: 150px;
         }
-        .divSelectMenu .button {
+        .button {
             padding: 4px 12px;
             text-align: center;
             text-decoration: none;
@@ -28,32 +26,23 @@
             font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
             font-size: 14px;
             line-height: 16px;
-            margin: 0px 0px 12px 0px
+            margin-bottom: 12px;
         }
-        .divSelectMenu .button span{
-            margin-right: 12px;
-        }
-        .divSelectMenu .button.primary {
+        .button.primary {
             background-color: #004494;
             color: #ffffff !important;
         }
-        .divSelectMenu .button:active {
+        .button:active {
             background-color: #55ac42 !important;
             color: #ffffff !important;
             border-color: transparent;
         }
-        .divSelectMenu a:hover{
+        a:hover{
             background-color: #0066cc !important;
-            color: #ffffff !important;
-        }
-        select{
-            width: 250px;
         }
         #despS{
-            display: none;
             color: red;
         }
-
     </style>
 </head>
 
@@ -71,9 +60,7 @@
     <option value="CustomPayments"> Произвольные платежи</option>
 </select>
 <select onclick='updateButtons(options[this.selectedIndex].value)' size="4" id="List2"></select>
-<div class="blocTop">
-    <a href="" id="editButton" class="button" target="_blank"><span>Открыть</span></a>
-</div>
+<a href="" id="editButton" class="button primary" target="_blank">Открыть</a>
 <script type="text/javascript">
     window.updateButtons = function(value) {
 
