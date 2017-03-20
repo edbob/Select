@@ -6,23 +6,29 @@
     <link rel="stylesheet" href="css/style.min.css" />
     <script>
         window.onload = function () {
-            window.updateButtons = function (value) {
-                element = document.getElementById('openButt');
-                if (value.length !== 0) {
-                    element.href = value;
-                    var DespsA = getId("errorSelect");
-                    DespsA.style.display = 'none';
-                    element.setAttribute("class", "button primary")
-                    element.setAttribute("target", "_blank");
 
-                } else {
-                    var DespsB = getId("errorSelect");
-                    DespsB.style.display = 'block';
-                    element.href = '#';
-                    element.removeAttribute('target');
-                    element.setAttribute("class", "noReady");
+            document.addEventListener("change", function (e) {
+                if(!e.target.value){
+                    alert("test");
                 }
-            }
+            }, false);
+            //window.updateButtons = function (value) {
+            //    element = document.getElementById('openButt');
+            //    if (value.length !== 0) {
+            //        element.href = value;
+            //        var DespsA = getId("errorSelect");
+            //        DespsA.style.display = 'none';
+            //        element.setAttribute("class", "button primary")
+            //        element.setAttribute("target", "_blank");
+
+            //    } else {
+            //        var DespsB = getId("errorSelect");
+            //        DespsB.style.display = 'block';
+            //        element.href = '#';
+            //        element.removeAttribute('target');
+            //        element.setAttribute("class", "noReady");
+            //    }
+            //}
             function getId(id) {
                 return document.getElementById(id);
             };
@@ -121,7 +127,7 @@
             <option value="InsuranceLoans"> Страхования по кредитам</option>
             <option value="CustomPayments"> Произвольные платежи</option>
         </select>
-        <select onclick='updateButtons(options[this.selectedIndex].value)' size="4" id="List2"></select>
+        <select size="4" id="List2"></select>
         <a href="" id="openButt" class="button primary" target="_blank">Открыть</a>
     </div>
 </body>
