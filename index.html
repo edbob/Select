@@ -1,34 +1,44 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Связанные селекты</title>
+    <title>Примеры оформления платежей</title>
     <script src="linckselect.js"></script>
-    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <script>
         window.onload = function () {
+            //var select = getId("List2");
+            getId("List2").addEventListener("change", function (e) {
+                var sumbit = getId("sumbit"),
+                error = getId("error");
+                if (e.target.selectedIndex == 0) {//Up
+                    var countEnd = 0;
+                    error.style.display = "block";
+                    var timerA = setInterval(function () {
+                        error.style.height = countEnd + "px";
+                        countEnd++;
+                        if (error.style.height === "25px") {
+                            clearInterval(timerA);
+                        };
+                    }, 20);
+                    sumbit.href = '#';
+                    sumbit.removeAttribute('target');
+                    sumbit.setAttribute("class", "noReady");
+                } else {//Dn
+                    var countStart = 25;
+                    var timerB = setInterval(function () {
+                        error.style.height = countStart + "px";
+                        countStart--;
+                        if (error.style.height === "0px") {
+                            clearInterval(timerB);
+                            error.style.display = "none";
+                        };
+                    }, 20);
 
-            document.addEventListener("change", function (e) {
-                if(!e.target.value){
-                    alert("test");
-                }
+                    sumbit.href = e.target.value;
+                    sumbit.setAttribute("class", "button primary");
+                    sumbit.setAttribute("target", "_blank");
+                };
             }, false);
-            //window.updateButtons = function (value) {
-            //    element = document.getElementById('openButt');
-            //    if (value.length !== 0) {
-            //        element.href = value;
-            //        var DespsA = getId("errorSelect");
-            //        DespsA.style.display = 'none';
-            //        element.setAttribute("class", "button primary")
-            //        element.setAttribute("target", "_blank");
-
-            //    } else {
-            //        var DespsB = getId("errorSelect");
-            //        DespsB.style.display = 'block';
-            //        element.href = '#';
-            //        element.removeAttribute('target');
-            //        element.setAttribute("class", "noReady");
-            //    }
-            //}
             function getId(id) {
                 return document.getElementById(id);
             };
@@ -37,7 +47,7 @@
             syncList1.dataList = {
 
                 'mobConn': {
-                    '': '-------------',
+                    '': '#',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/28B61FB8125754DCC2257C420032462F/$FILE/20130213_MTS_RU.pdf': 'MTC',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/2C1CCBADB00F4A4DC2257C4200326384/$FILE/20130213_InterTeleCom_RU.pdf': 'Intertelecom',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/F06AF1701245A64DC2257C420032864C/$FILE/20130213_KyivStar_RU.pdf': 'Киевстар',
@@ -49,7 +59,7 @@
                 },
 
                 'internetTV': {
-                    '': '-------------',
+                    '': '#',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/A2BFB645F9F94A9FC2257C4200322E7A/$FILE/briz.pdf': 'ООО ТРК Бриз',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/9CC2F998B9308E3CC2257C42003274C7/$FILE/Chernoe_more.pdf': 'ТК Черное море',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/4A16B6468DAEA4CEC2257C42003296A9/$FILE/devkom.pdf': 'ООО ТРК "Дэвком"',
@@ -66,14 +76,14 @@
                 },
 
                 'landlinePhone': {
-                    '': '-------------',
+                    '': '#',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/CBCA86CC37FBA646C2257C420033D46B/$FILE/ukrTelekom.pdf': 'Единый платеж Укртелеком',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/2C7CD74AB04A5052C2257C4200349316/$FILE/Ukrtelecom_illichevsk.pdf': '"Укртелеком". Ильичевск',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/1381C3F1F6E52A40C2257C420034BB1B/$FILE/20130213_Vega_tel_RU.pdf': 'Vega (Фарлеп, ЦСС, Оптима)'
                 },
 
                 'utilityPayments': {
-                    '': '-------------',
+                    '': '#',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/DDBF6D5C9199A547C2257D12001FDC0B/$FILE/oplataKomYouKIs.pdf': 'ЮКИС',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/A8A8B8AD5419861AC2257C420033E424/$FILE/odessagaz.pdf': 'Одессагаз',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/283A295E32775308C2257C4200340B28/$FILE/GERC.pdf': 'ГЕРЦ',
@@ -84,14 +94,14 @@
                 },
 
                 'InternalPayments': {
-                    '': '-------------',
+                    '': '#',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/8A9A7C0AE1253A67C2257C4200355197/$FILE/karta.pdf': ' с карты на карту',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/9895A4645E3B29BBC2257C42003564AB/$FILE/kredit.pdf': ' Погашение кредита в гривне',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/5895DE19AB34332AC2257C4200357CE5/$FILE/AdditionOfDeposit.pdf': ' Пополнение депозита в гривне'
 
                 },
                 'InsuranceLoans': {
-                    '': '-------------',
+                    '': '#',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/E2E61184F27312C5C2257C420035A68C/$FILE/Dobrobut_Zakhist.pdf': ' Добробут та Захист',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/116D6B2706BFABE6C2257C420035BC2F/$FILE/Kredo.pdf': ' КРЕДО',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/57D4C9B30430D35EC2257C420035ED25/$FILE/ORSK.pdf': ' ОРСК',
@@ -102,7 +112,7 @@
 
                 },
                 'CustomPayments': {
-                    '': '-------------',
+                    '': '#',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/98385DE6F73FE33DC2257C420036185A/$FILE/teplosnabzhenie.pdf': ' Теплоснабжение города Одессы',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/7983E240D4272A20C2257C420036285B/$FILE/infox.pdf': ' Инфоксводоканал'
                 }
@@ -117,8 +127,7 @@
     <div class="main">
         <p><b>Примеры оформления платежей</b></p>
         <p style="cursor: help">Выберите нужный раздел, нажмите его после чего нажмите кнопку "Открыть"</p>
-        <div id="errorSelect"><p>Вы нажали на пустую строку!</p></div>
-        <select size="4" id="List1">
+        <select size="4" id="List1" name="select">
             <option value="mobConn"> Мобильная связь</option>
             <option value="internetTV"> Интернет и ТВ</option>
             <option value="landlinePhone"> Стационарная Телефония</option>
@@ -128,7 +137,8 @@
             <option value="CustomPayments"> Произвольные платежи</option>
         </select>
         <select size="4" id="List2"></select>
-        <a href="" id="openButt" class="button primary" target="_blank">Открыть</a>
+        <a href="" id="sumbit" class="noReady" target="_blank">Открыть</a>
+        <div id="error"><b>Вы нажали на пустую строку!</b></div>
     </div>
 </body>
 </html>
