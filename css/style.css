@@ -3,12 +3,14 @@
   padding: 0;
 }
 body {
-  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+  font-family: Tahoma 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
 }
 .main {
   margin: 0 auto;
   width: 600px;
+  padding: 10px;
+  border: 1px solid #333333;
 }
 .main p {
   margin-bottom: 12px;
@@ -42,15 +44,13 @@ body {
 a.button.primary:hover {
   background-color: #0066cc !important;
 }
-#errorSelect {
+#error {
+  height: 0px;
   background: red;
   color: #ffffff;
   display: none;
-  padding: 5px;
-  margin-bottom: 10px;
-}
-#errorSelect p {
-  margin-bottom: 0px !important;
+  text-align: center;
+  padding-top: 5px;
 }
 .noReady {
   background-color: #c5c5c5;
