@@ -5,11 +5,11 @@
     <script src="linckselect.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <script>
+        var syncList = new syncList;
         window.onload = function () {
-            //var select = getId("List2");
-            getId("List2").addEventListener("change", function (e) {
-                var sumbit = getId("sumbit"),
-                error = getId("error");
+            syncList._getId("List2").addEventListener("change", function (e) {   
+                var submit = syncList._getId("submit"),
+                error = syncList._getId("error");
                 if (e.target.selectedIndex == 0) {//Up
                     var countEnd = 0;
                     error.style.display = "block";
@@ -20,10 +20,10 @@
                             clearInterval(timerA);
                         };
                     }, 20);
-                    sumbit.href = '#';
-                    sumbit.removeAttribute('target');
-                    sumbit.setAttribute("class", "noReady");
-                } else {//Dn
+                    submit.href = '#';
+                    submit.removeAttribute('target');
+                    submit.setAttribute("class", "noReady");
+                } else{//Dn
                     var countStart = 25;
                     var timerB = setInterval(function () {
                         error.style.height = countStart + "px";
@@ -34,17 +34,12 @@
                         };
                     }, 20);
 
-                    sumbit.href = e.target.value;
-                    sumbit.setAttribute("class", "button primary");
-                    sumbit.setAttribute("target", "_blank");
+                    submit.href = e.target.value;
+                    submit.setAttribute("class", "button primary");
+                    submit.setAttribute("target", "_blank");
                 };
             }, false);
-            function getId(id) {
-                return document.getElementById(id);
-            };
-            var syncList1 = new syncList;
-
-            syncList1.dataList = {
+            syncList.dataList = {
 
                 'mobConn': {
                     '': '#',
@@ -118,7 +113,7 @@
                 }
             };
 
-            syncList1.sync("List1", "List2");
+            syncList.sync("List1", "List2");
         };
     </script>
 </head>
@@ -137,8 +132,8 @@
             <option value="CustomPayments"> Произвольные платежи</option>
         </select>
         <select size="4" id="List2"></select>
-        <a href="" id="sumbit" class="noReady" target="_blank">Открыть</a>
-        <div id="error"><b>Вы нажали на пустую строку!</b></div>
+        <a href="" id="submit" class="noReady" target="_blank">Открыть</a>
+        <div id="error">Вы нажали на пустую строку!</div>
     </div>
 </body>
 </html>

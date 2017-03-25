@@ -1,5 +1,4 @@
 function syncList() {
-
     syncList.prototype.sync = function () {
         for (var i = 0, allar = arguments.length -1; i < allar; i++) {
             document.getElementById(arguments[i]).onchange = (function (o, id1, id2) {
@@ -28,14 +27,20 @@ function syncList() {
                     firstSelect.options[0].selected = true;
                 }, 1);
             };
-
+            var sumbit = this._getId("submit");
             if (secondSelect.length > 0) {
                 setTimeout(function () {
-                    secondSelect.options[0].selected = true;
+                    secondSelect.options[0].selected = true; 
+                    sumbit.href = '#';
+                    sumbit.removeAttribute('target');
+                    sumbit.setAttribute("class", "noReady");
                 }, 1);
             };
         };
-        secondSelect.onchange && secondSelect.onchange();
+        secondSelect.onchange;
+    };
+    syncList.prototype._getId = function (id) {
+        return document.getElementById(id);
     };
 };
 

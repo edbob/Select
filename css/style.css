@@ -49,11 +49,8 @@ a.button.primary:hover {
   background: red;
   color: #ffffff;
   display: none;
-  margin-bottom: 10px;
   text-align: center;
-}
-#error b {
-  vertical-align: sub;
+  padding-top: 5px;
 }
 .noReady {
   background-color: #c5c5c5;
