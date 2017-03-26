@@ -5,7 +5,7 @@
     <script src="linckselect.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <script>
-        var syncList = new syncList;
+        var syncList = new syncList();
         window.onload = function () {
             syncList._getId("List2").addEventListener("change", function (e) {
                 var submit = syncList._getId("submit"),

@@ -1,19 +1,18 @@
 function syncList() {
-
-    this.prototype.sync = function () {
+    syncList.prototype.sync = function () {
         for (var i = 0, allar = arguments.length -1; i < allar; i++) {
-            document.getElementById(arguments[i]).onchange = (function (o, id1, id2) {
+            this._getId(arguments[i]).onchange = (function (o, id1, id2) {
                 return function () {
                     o._sync(id1, id2);
                 };
             })(this, arguments[i], arguments[i + 1]);
         };
-        document.getElementById(arguments[0]).onchange();
+        this._getId(arguments[0]).onchange();
     };
 
-    this.prototype._sync = function (firstSelectId, secondSelectId) {
-        var firstSelect = document.getElementById(firstSelectId);
-        var secondSelect = document.getElementById(secondSelectId);
+    syncList.prototype._sync = function (firstSelectId, secondSelectId) {
+        var firstSelect = this._getId(firstSelectId);
+        var secondSelect = this._getId(secondSelectId);
 
         secondSelect.length = 0;
 
