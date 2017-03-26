@@ -1,5 +1,5 @@
-function syncList() {
-    syncList.prototype.sync = function () {
+var syncList = function() {
+    this.prototype.sync = function () {
         for (var i = 0, allar = arguments.length -1; i < allar; i++) {
             this._getId(arguments[i]).onchange = (function (o, id1, id2) {
                 return function () {
@@ -10,7 +10,7 @@ function syncList() {
         this._getId(arguments[0]).onchange();
     };
 
-    syncList.prototype._sync = function (firstSelectId, secondSelectId) {
+    this.prototype._sync = function (firstSelectId, secondSelectId) {
         var firstSelect = this._getId(firstSelectId);
         var secondSelect = this._getId(secondSelectId);
 

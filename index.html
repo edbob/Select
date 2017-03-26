@@ -5,11 +5,11 @@
     <script src="linckselect.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <script>
-        var syncList = new syncList();
         window.onload = function () {
-            syncList._getId("List2").addEventListener("change", function (e) {
-                var submit = syncList._getId("submit"),
-                error = syncList._getId("error");
+            var sL = new syncList();
+            sL._getId("List2").addEventListener("change", function (e) {
+                var submit = sL._getId("submit"),
+                error = sL._getId("error");
                 if (e.target.selectedIndex == 0) {//Up
                     var countEnd = 0;
                     error.style.display = "block";
@@ -39,7 +39,7 @@
                     submit.setAttribute("target", "_blank");
                 };
             }, false);
-            syncList.dataList = {
+            sL.dataList = {
 
                 'mobConn': {
                     '': '#',
@@ -113,7 +113,7 @@
                 }
             };
 
-            syncList.sync("List1", "List2");
+            sL.sync("List1", "List2");
         };
     </script>
 </head>
