@@ -1,5 +1,6 @@
-var syncList = function() {
-    this.prototype.sync = function () {
+function syncList() {
+
+    syncList.prototype.sync = function () {
         for (var i = 0, allar = arguments.length -1; i < allar; i++) {
             this._getId(arguments[i]).onchange = (function (o, id1, id2) {
                 return function () {
@@ -10,7 +11,7 @@ var syncList = function() {
         this._getId(arguments[0]).onchange();
     };
 
-    this.prototype._sync = function (firstSelectId, secondSelectId) {
+    syncList.prototype._sync = function (firstSelectId, secondSelectId) {
         var firstSelect = this._getId(firstSelectId);
         var secondSelect = this._getId(secondSelectId);
 
@@ -39,6 +40,18 @@ var syncList = function() {
         };
         secondSelect.onchange;
     };
+
+    //setTimeout
+    syncList.prototype.setTim = function () {
+
+    };
+
+    //print message
+    syncList.prototype.print = function (id , ms) {
+        return this._getId(id).innerHTML = "URL : " + ms;
+    };
+
+    //getIdElement
     syncList.prototype._getId = function (id) {
         return document.getElementById(id);
     };

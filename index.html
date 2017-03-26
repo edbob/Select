@@ -8,8 +8,7 @@
         window.onload = function () {
             var sL = new syncList();
             sL._getId("List2").addEventListener("change", function (e) {
-                var submit = sL._getId("submit"),
-                error = sL._getId("error");
+                var submit = sL._getId("submit"), error = sL._getId("error"), frame = sL._getId("myframe");
                 if (e.target.selectedIndex == 0) {//Up
                     var countEnd = 0;
                     error.style.display = "block";
@@ -23,7 +22,9 @@
                     submit.href = '#';
                     submit.removeAttribute('target');
                     submit.setAttribute("class", "noReady");
-                } else{//Dn
+                    frame.style.display = "none"
+
+                } else {//Dn
                     var countStart = 25;
                     var timerB = setInterval(function () {
                         error.style.height = countStart + "px";
@@ -37,6 +38,9 @@
                     submit.href = e.target.value;
                     submit.setAttribute("class", "button primary");
                     submit.setAttribute("target", "_blank");
+                    //sL.print("print", e.target.value);
+                    frame.style.display = "block"
+                    frame.src = e.target.value;
                 };
             }, false);
             sL.dataList = {
@@ -111,8 +115,7 @@
                     'http://marfinbank.ua/web/mb-ru.nsf/0/98385DE6F73FE33DC2257C420036185A/$FILE/teplosnabzhenie.pdf': ' Теплоснабжение города Одессы',
                     'http://marfinbank.ua/web/mb-ru.nsf/0/7983E240D4272A20C2257C420036285B/$FILE/infox.pdf': ' Инфоксводоканал'
                 }
-            };
-
+             };
             sL.sync("List1", "List2");
         };
     </script>
@@ -132,8 +135,18 @@
             <option value="CustomPayments"> Произвольные платежи</option>
         </select>
         <select size="4" id="List2"></select>
-        <a href="" id="submit" class="noReady" target="_blank">Открыть</a>
+        <a href="" id="submit" class="noReady" target="_blank">Открыть в новом окне</a>
         <div id="error">Вы нажали на пустую строку!</div>
+        <!--<div id="print"></div>-->
+        <!--svg img-->
+        <div class="nav">
+            <a href="" class="icon shar" title="Поделится ссылкой"></a>
+            <a href="" class="icon newWind" title="Открыть в новом окне"></a>
+        </div>
+        <iframe id="myframe" src="">
+            Ваш браузер не поддерживает встроенные фреймы!
+        </iframe>
     </div>
+
 </body>
 </html>
