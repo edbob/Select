@@ -28,13 +28,9 @@ function syncList() {
                     firstSelect.options[0].selected = true;
                 }, 1);
             };
-            var sumbit = this._getId("submit");
             if (secondSelect.length > 0) {
                 setTimeout(function () {
                     secondSelect.options[0].selected = true; 
-                    sumbit.href = '#';
-                    sumbit.removeAttribute('target');
-                    sumbit.setAttribute("class", "noReady");
                 }, 1);
             };
         };
@@ -46,9 +42,9 @@ function syncList() {
 
     };
 
-    //print message
+    //print message in future
     syncList.prototype.print = function (id , ms) {
-        return this._getId(id).innerHTML = "URL : " + ms;
+        return this._getId(id).innerHTML = ms;
     };
 
     //getIdElement

@@ -8,7 +8,8 @@
         window.onload = function () {
             var sL = new syncList();
             sL._getId("List2").addEventListener("change", function (e) {
-                var submit = sL._getId("submit"), error = sL._getId("error"), frame = sL._getId("myframe");
+                var submit = sL._getId("submit"), error = sL._getId("error"), frame = sL._getId("myframe"),
+                    newWind = sL._getId("newWind");
                 if (e.target.selectedIndex == 0) {//Up
                     var countEnd = 0;
                     error.style.display = "block";
@@ -19,11 +20,8 @@
                             clearInterval(timerA);
                         };
                     }, 20);
-                    submit.href = '#';
-                    submit.removeAttribute('target');
-                    submit.setAttribute("class", "noReady");
+                    newWind.href = '#';
                     frame.style.display = "none"
-
                 } else {//Dn
                     var countStart = 25;
                     var timerB = setInterval(function () {
@@ -34,11 +32,7 @@
                             error.style.display = "none";
                         };
                     }, 20);
-
-                    submit.href = e.target.value;
-                    submit.setAttribute("class", "button primary");
-                    submit.setAttribute("target", "_blank");
-                    //sL.print("print", e.target.value);
+                    newWind.href = e.target.value;
                     frame.style.display = "block"
                     frame.src = e.target.value;
                 };
@@ -120,11 +114,9 @@
         };
     </script>
 </head>
-
 <body>
     <div class="main">
         <p><b>Примеры оформления платежей</b></p>
-        <p style="cursor: help">Выберите нужный раздел, нажмите его после чего нажмите кнопку "Открыть"</p>
         <select size="4" id="List1" name="select">
             <option value="mobConn"> Мобильная связь</option>
             <option value="internetTV"> Интернет и ТВ</option>
@@ -135,18 +127,14 @@
             <option value="CustomPayments"> Произвольные платежи</option>
         </select>
         <select size="4" id="List2"></select>
-        <a href="" id="submit" class="noReady" target="_blank">Открыть в новом окне</a>
         <div id="error">Вы нажали на пустую строку!</div>
-        <!--<div id="print"></div>-->
-        <!--svg img-->
         <div class="nav">
             <a href="" class="icon shar" title="Поделится ссылкой"></a>
-            <a href="" class="icon newWind" title="Открыть в новом окне"></a>
+            <a href="" id="newWind" class="icon newWind" title="Открыть в новом окне" target="_blank"></a>
         </div>
         <iframe id="myframe" src="">
             Ваш браузер не поддерживает встроенные фреймы!
         </iframe>
     </div>
-
 </body>
 </html>
