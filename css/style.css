@@ -6,6 +6,9 @@ body {
   font-family: Tahoma 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
 }
+h1 {
+  margin: 5px 0;
+}
 .main {
   margin: 0 auto;
   width: 600px;
@@ -51,6 +54,7 @@ a.button.primary:hover {
   display: none;
   text-align: center;
   padding-top: 5px;
+  margin: 5px 0;
 }
 .noReady {
   background-color: #c5c5c5;
@@ -89,4 +93,9 @@ iframe {
 }
 .icon.newWind {
   background: url(../img/new-tab-button.svg);
+}
+.tooltip {
+  background-color: whitesmoke;
+  border: 1px solid #333333;
+  padding: 5px;
 }
