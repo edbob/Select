@@ -1,4 +1,4 @@
-function syncList() {
+function syncList() { };
 
     syncList.prototype.sync = function () {
         for (var i = 0, allar = arguments.length -1; i < allar; i++) {
@@ -51,7 +51,7 @@ function syncList() {
     syncList.prototype._getId = function (id) {
         return document.getElementById(id);
     };
-};
+
 //Tooltip
 
 function Tooltip() {

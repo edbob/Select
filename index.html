@@ -9,7 +9,7 @@
             var sL = new syncList();
             var toT = new Tooltip();
             sL._getId("List2").addEventListener("change", function (e) {
-                var submit = sL._getId("submit"), error = sL._getId("error"), //frame = sL._getId("myframe"),
+                var submit = sL._getId("submit"), error = sL._getId("error"), frame = sL._getId("myframe"),
                     newWind = sL._getId("newWind");
                 if (e.target.selectedIndex == 0) {//Up
                     var countEnd = 0;
@@ -22,7 +22,7 @@
                         };
                     }, 20);
                     newWind.href = '#';
-                    //frame.style.display = "none"
+                    frame.style.display = "none"
                 } else {//Dn
                     var countStart = 25;
                     var timerB = setInterval(function () {
@@ -34,8 +34,8 @@
                         };
                     }, 20);
                     newWind.href = e.target.value;
-                    //frame.style.display = "block"
-                    //frame.src = e.target.value;
+                    frame.style.display = "block"
+                    frame.src = e.target.value;
                 };
             }, false);
             sL.dataList = {
@@ -113,9 +113,21 @@
             };
             sL.sync("List1", "List2");
 
-            var d = document.getElementsByClassName("icon")[0];
-            d.onmousemove = mouseMoveHandler;
-            d.onmouseout = mouseOutHandler;
+            var a = document.getElementsByTagName("a");
+            for (var i = 0; i < a.length;i++) {
+                var currentEl = a[i];
+                currentEl.addEventListener("mousemove", function (e) {
+                    if (e.target) {
+                        mouseMoveHandler(e)
+                    }
+                });
+                currentEl.addEventListener("mouseout", function (e) {
+                    if (e.target) {
+                        mouseOutHandler()
+                    }
+                });
+
+            };
 
             var toT = new Tooltip();
 
@@ -127,6 +139,7 @@
             function mouseOutHandler () {
                 toT.hide();
             };
+
         };
     </script>
 </head>
@@ -149,9 +162,9 @@
             <a href="" id="newWind" class="icon newWind" target="_blank" name="Открыть в новом окне"></a>
         </div>
            
-        <!--<iframe id="myframe" src="">
+        <iframe id="myframe" src="">
             Ваш браузер не поддерживает встроенные фреймы!
-        </iframe>-->
+        </iframe>
     </div>
 </body>
 </html>
