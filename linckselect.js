@@ -53,7 +53,6 @@ function syncList() { };
     };
 
 //Tooltip
-
 function Tooltip() {
     this.tooltip = document.createElement("div");
     this.tooltip.style.position = "absolute";

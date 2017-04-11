@@ -6,10 +6,9 @@
     <link rel="stylesheet" href="css/style.css" />
     <script>
         window.onload = function () {
-            var sL = new syncList();
-            var toT = new Tooltip();
+            var sL = new syncList(), toT = new Tooltip();
             sL._getId("List2").addEventListener("change", function (e) {
-                var submit = sL._getId("submit"), error = sL._getId("error"), frame = sL._getId("myframe"),
+                var error = sL._getId("error"), frame = sL._getId("myframe"),
                     newWind = sL._getId("newWind");
                 if (e.target.selectedIndex == 0) {//Up
                     var countEnd = 0;
@@ -128,8 +127,6 @@
                 });
 
             };
-
-            var toT = new Tooltip();
 
             function mouseMoveHandler(e) {
                 if (!e) e = window.event;
