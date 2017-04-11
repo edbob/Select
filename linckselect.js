@@ -34,7 +34,6 @@ function syncList() { };
                 }, 1);
             };
         };
-        secondSelect.onchange;
     };
 
     //setTimeout
